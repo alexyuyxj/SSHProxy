@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="m.sshproxy"
+    android:versionCode="1"
+    android:versionName="1.0.0" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <application
+        android:debuggable="true"
+        android:label="SSHProxy"
+        android:theme="@android:style/Theme.NoTitleBar">
+        
+        <activity
+            android:name="m.sshproxy.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        
+        <service 
+            android:process=":ssh"
+            android:name="m.sshproxy.SSHService"
+            android:exported="false"/>
+    </application>
+
+</manifest>
