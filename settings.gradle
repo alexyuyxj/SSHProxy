@@ -1,0 +1,3 @@
+include ':app', ':trilead-ssh2'
+project(':app').projectDir = new File('projects/app')
+project(':trilead-ssh2').projectDir = new File('projects/trilead-ssh2')
